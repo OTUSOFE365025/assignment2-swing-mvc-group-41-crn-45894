@@ -20,9 +20,8 @@ public class MySwingMVCApp {
         c2.setCashRegister(register, displayView);
 
         new Scanner(c2);
-        
+
         System.out.println("Program started successfully.");
-        System.out.println("You can click 'Scan' to simulate scanning products.");
-        System.out.println("Both 'Hello' buttons now display the correct names.");
+        System.out.println("Click 'Scan' to simulate scanning products.");
     }
 }
