@@ -1,5 +1,8 @@
 import java.io.File;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
 
 public class CashRegister {
     private Map<String, Product> products = new HashMap<>();
@@ -10,7 +13,7 @@ public class CashRegister {
     }
 
     private void loadProducts(String filename) {
-        try (Scanner sc = new Scanner(new File(filename))) {
+        try (java.util.Scanner sc = new java.util.Scanner(new File(filename))) {
             while (sc.hasNext()) {
                 String upc = sc.next();
                 String name = sc.next();
@@ -28,11 +31,15 @@ public class CashRegister {
         }
     }
 
-    public List<Product> getScannedItems() { return scannedItems; }
+    public List<Product> getScannedItems() {
+        return scannedItems;
+    }
 
     public double getSubtotal() {
         double total = 0.0;
-        for (Product p : scannedItems) total += p.getPrice();
+        for (Product p : scannedItems) {
+            total += p.getPrice();
+        }
         return total;
     }
 }
