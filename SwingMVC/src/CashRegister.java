@@ -18,7 +18,7 @@ public class CashRegister {
                 products.put(upc, new Product(upc, name, price));
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error reading product file: " + e.getMessage());
         }
     }
 
@@ -28,11 +28,11 @@ public class CashRegister {
         }
     }
 
-    public List<Product> getScannedItems() {
-        return scannedItems;
-    }
+    public List<Product> getScannedItems() { return scannedItems; }
 
     public double getSubtotal() {
-        return scannedItems.stream().mapToDouble(Product::getPrice).sum();
+        double total = 0.0;
+        for (Product p : scannedItems) total += p.getPrice();
+        return total;
     }
 }
