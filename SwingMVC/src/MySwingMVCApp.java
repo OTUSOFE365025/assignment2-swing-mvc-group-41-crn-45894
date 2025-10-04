@@ -10,7 +10,7 @@ public class MySwingMVCApp {
 
         CashRegister register = new CashRegister("products.txt");
 
-        Model m2 = new Model("Aliza", "Rizwan");
+        Model m2 = new Model("", "");
         View displayView = new View("Cash Register");
         Controller c2 = new Controller(m2, displayView);
         c2.initController();
