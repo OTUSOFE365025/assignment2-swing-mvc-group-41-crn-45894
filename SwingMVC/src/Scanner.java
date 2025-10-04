@@ -8,7 +8,7 @@ import javax.swing.*;
 
 public class Scanner {
     private JFrame frame;
-    private JPanel panel;
+    private JPanel scannerPanel;
     private JButton scanButton;
     private List<String> upcCodes = new ArrayList<>();
     private Random rand = new Random();
@@ -21,14 +21,14 @@ public class Scanner {
         frame = new JFrame("Scanner");
         frame.getContentPane().setLayout(new BorderLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(150, 100);
-        frame.setLocation(450, 50);
-
-        panel = new JPanel();
-        scanButton = new JButton("Scan");
-        panel.add(scanButton);
-        frame.getContentPane().add(panel);
+        frame.setSize(120, 100);
+        frame.setLocation(300, 50);
         frame.setVisible(true);
+
+        scanButton = new JButton("Scan");
+        scannerPanel = new JPanel();
+        scannerPanel.add(scanButton);
+        frame.getContentPane().add(scannerPanel);
 
         scanButton.addActionListener(e -> scanProduct());
     }
@@ -36,12 +36,12 @@ public class Scanner {
     private void loadUPCs(String filename) {
         try (java.util.Scanner sc = new java.util.Scanner(new File(filename))) {
             while (sc.hasNext()) {
-                upcCodes.add(sc.next()); 
-                sc.next();               
-                sc.nextDouble();         
+                upcCodes.add(sc.next());
+                sc.next();
+                sc.nextDouble();
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println("Error loading UPCs: " + e.getMessage());
         }
     }
 
