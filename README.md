@@ -26,7 +26,7 @@ Scanner.java - Handles product scanning simulation
 The Swing framework is a GUI (Graphical User Interface) toolkit that is a part of the Java Foundation Classes. The purpose of the Swing framework is to provide ready-made components such as buttons, text fields, labels, and windows, which can then be combined to become an interactive desktop application. Switch is a relatively lightweight framework and is mostly written in Java, which means that it can work the same way in many different operating systems, such as Windows, Mac, and Linux. One of the more important qualities of the Swing framework is that it follows the MVC (Model-View-Controller) architecture internally. In this architecture, the model represents the data, the view handles how the data is displayed, and the controller manages user actions such as button clicks. To summarize, Swing as a framework makes it easier for the user to focus on how the application looks and behaves without needing to build out everything from scratch. 
 In this MVC project, Swing is used in the View and Scanner classes to showcase an interactive display window, where the controller listens for button events and updates the model.
 
-<img width="646" height="263" alt="image" src="https://github.com/user-attachments/assets/69444722-c106-4cd6-a5c7-476fa4083ec9" />
+<img width="817" height="331" alt="image" src="https://github.com/user-attachments/assets/12560637-c256-41f2-8005-b35553895041" />
 
 
 
@@ -71,7 +71,7 @@ When executing the main Java file, users can repeatedly press the Scan button to
 ### 4. Create a sequence diagram of your design for the scenario presented in question 3, representing a single press of the scan button.
 
 *A sequence diagram representing a single press of the scan button would be included here, showing the interaction between Scanner, Controller, CashRegister (Model), and Display (View) components.*
-<img width="744" height="364" alt="image" src="https://github.com/user-attachments/assets/7886e49f-1ce4-4187-bc73-f5dccd9a31e6" />
+<img width="806" height="377" alt="image" src="https://github.com/user-attachments/assets/1ac8554f-124f-4b5f-a298-26bfa78b9a46" />
 
 
 ## Conclusion
