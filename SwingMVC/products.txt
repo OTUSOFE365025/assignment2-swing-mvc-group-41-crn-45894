@@ -1,0 +1,5 @@
+12345 Coffee 8.32
+67890 Muffin 2.50
+13579 Sandwich 5.75
+24680 Juice 3.10
+11223 Cookie 1.25

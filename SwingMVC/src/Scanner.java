@@ -2,69 +2,53 @@
 // it will send a notification of a UPC code
 
 import java.awt.BorderLayout;
- 
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-
-import javax.swing.JPanel;
-
+import java.io.File;
+import java.util.*;
+import javax.swing.*;
 
 public class Scanner {
-	// Scanner uses Swing framework to create a UPC code
-	 private JFrame frame;
-	 private JPanel scannerPanel;
-	 private JButton scanButton;
-	 
-	 public Scanner() {
-		  frame = new JFrame("Scanner");
-		  frame.getContentPane().setLayout(new BorderLayout());
-		  frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		  frame.setSize(100, 100);
-		  frame.setLocation(300,50);
-		  frame.setVisible(true);
-		  
-		  
-		  // Create UI elements
-		  scanButton = new JButton("Scan");
-		  scannerPanel = new JPanel();
-		  
-		  // Add UI element to frame
-		  scannerPanel.add(scanButton);
-		  frame.getContentPane().add(scannerPanel);
-		  
-		  scanButton.addActionListener(e -> generateUPC());
-	 }
+    private JFrame frame;
+    private JPanel scannerPanel;
+    private JButton scanButton;
+    private List<String> upcCodes = new ArrayList<>();
+    private Random rand = new Random();
+    private Controller controller;
 
-	private int generateUPC() {
-		int upcCode = 12345; 
-		System.out.println(upcCode);
-		return upcCode;
-	}
+    public Scanner(Controller controller) {
+        this.controller = controller;
+        loadUPCs("products.txt");
 
-	public JFrame getFrame() {
-		return frame;
-	}
+        frame = new JFrame("Scanner");
+        frame.getContentPane().setLayout(new BorderLayout());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(120, 100);
+        frame.setLocation(300, 50);
+        frame.setVisible(true);
 
-	public void setFrame(JFrame frame) {
-		this.frame = frame;
-	}
+        scanButton = new JButton("Scan");
+        scannerPanel = new JPanel();
+        scannerPanel.add(scanButton);
+        frame.getContentPane().add(scannerPanel);
 
-	public JPanel getScannerPanel() {
-		return scannerPanel;
-	}
+        scanButton.addActionListener(e -> scanProduct());
+    }
 
-	public void setScannerPanel(JPanel scannerPanel) {
-		this.scannerPanel = scannerPanel;
-	}
+    private void loadUPCs(String filename) {
+        try (java.util.Scanner sc = new java.util.Scanner(new File(filename))) {
+            while (sc.hasNext()) {
+                upcCodes.add(sc.next());
+                sc.next();
+                sc.nextDouble();
+            }
+        } catch (Exception e) {
+            System.out.println("Error loading UPCs: " + e.getMessage());
+        }
+    }
 
-	public JButton getScanButton() {
-		return scanButton;
-	}
-
-	public void setScanButton(JButton scanButton) {
-		this.scanButton = scanButton;
-	}	 
-	 
-
+    private void scanProduct() {
+        if (upcCodes.isEmpty()) return;
+        String upc = upcCodes.get(rand.nextInt(upcCodes.size()));
+        System.out.println("Scanned: " + upc);
+        controller.handleScan(upc);
+    }
 }

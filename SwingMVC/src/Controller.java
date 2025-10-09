@@ -1,5 +1,6 @@
 import javax.swing.JOptionPane;
- 
+import java.util.List;
+
 public class Controller {
 	 private Model model;
 	 private View view;
@@ -39,5 +40,31 @@ public class Controller {
 	 private void sayBye() {
 	  System.exit(0);
 	 }
-	 
+    
+
+    private CashRegister register;   
+    private View displayView;        
+
+    public void setCashRegister(CashRegister register, View displayView) {
+        this.register = register;
+        this.displayView = displayView;
+    }
+
+    public void handleScan(String upc) {
+        if (register == null || displayView == null) {
+            System.out.println("Cash Register or Display not initialized!");
+            return;
+        }
+
+        register.addItemByUPC(upc);
+
+        StringBuilder sb = new StringBuilder();
+        List<Product> items = register.getScannedItems();
+        for (Product p : items) {
+            sb.append(p.toString()).append("\n");
+        }
+
+        double subtotal = register.getSubtotal();
+        displayView.updateDisplay(sb.toString(), subtotal);
+    }
 }

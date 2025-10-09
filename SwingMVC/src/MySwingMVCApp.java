@@ -1,17 +1,27 @@
-
 public class MySwingMVCApp {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		  // Assemble all the pieces of the MVC
-		  Model m = new Model("Sylvain", "Saurel");
-		  View v = new View("MVC with SSaurel");
-		  Controller c = new Controller(m, v);
-		  
-		  // create scanner
-		  Scanner scanner = new Scanner();
-		  
-		  c.initController();
-	}
+    public static void main(String[] args) {
 
+        Model m = new Model("Sylvain", "Saurel");
+        View v = new View("MVC with SSaurel");
+        Controller c1 = new Controller(m, v);
+        c1.initController();
+
+
+        CashRegister register = new CashRegister("products.txt");
+
+        Model m2 = new Model("", "");
+        View displayView = new View("Cash Register");
+        Controller c2 = new Controller(m2, displayView);
+        c2.initController();
+
+        displayView.createDisplayArea();
+
+        c2.setCashRegister(register, displayView);
+
+        new Scanner(c2);
+
+        System.out.println("Program started successfully.");
+        System.out.println("Click 'Scan' to simulate scanning products.");
+    }
 }
