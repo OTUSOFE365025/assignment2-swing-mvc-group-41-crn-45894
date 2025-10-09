@@ -5,6 +5,16 @@
 ## Overview
 This project demonstrates a Model-View-Controller (MVC) architecture implementation using Java Swing, featuring a cash register application that scans products and calculates running totals.
 
+### Main Classes:
+Main.java - Application entry point
+
+CashRegister.java - Model class handling product data and calculations
+
+Display.java - View class for UI presentation
+
+Controller.java - Controller class managing user interactions
+
+Scanner.java - Handles product scanning simulation
 ## Team Members
 - **Aliza Rizwan** (100922005): Deliverables 1 + 4
 - **Inshal Chauhdry** (100918210): Deliverable 2 + CashRegister model
