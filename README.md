@@ -12,29 +12,18 @@ This project demonstrates a Model-View-Controller (MVC) architecture implementat
 
 ## Assignment Deliverables
 
-### 1. Swing Framework Investigation
-
-**Purpose of Swing Framework:**
-The Swing framework is a GUI (Graphical User Interface) toolkit that is part of the Java Foundation Classes. The purpose of the Swing framework is to provide ready-made components such as buttons, text fields, labels, and windows, which can then be combined to create interactive desktop applications. Swing is a relatively lightweight framework and is mostly written in Java, which means it can work the same way across many different operating systems such as Windows, Mac, and Linux. One of the more important qualities of the Swing framework is that it follows the MVC (Model-View-Controller) architecture internally. In this architecture, the model represents the data, the view handles how the data is displayed, and the controller manages user actions such as button clicks. To summarize, Swing as a framework makes it easier for developers to focus on how the application looks and behaves without needing to build everything from scratch.
-
+### 1. Do some investigation into the Swing framework and write a short paragraph describing the purpose of the Swing framework. Submit a class diagram of the components of Swing.
+The Swing framework is a GUI (Graphical User Interface) toolkit that is a part of the Java Foundation Classes. The purpose of the Swing framework is to provide ready-made components such as buttons, text fields, labels, and windows, which can then be combined to become an interactive desktop application. Switch is a relatively lightweight framework and is mostly written in Java, which means that it can work the same way in many different operating systems, such as Windows, Mac, and Linux. One of the more important qualities of the Swing framework is that it follows the MVC (Model-View-Controller) architecture internally. In this architecture, the model represents the data, the view handles how the data is displayed, and the controller manages user actions such as button clicks. To summarize, Swing as a framework makes it easier for the user to focus on how the application looks and behaves without needing to build out everything from scratch. 
 In this MVC project, Swing is used in the View and Scanner classes to showcase an interactive display window, where the controller listens for button events and updates the model.
+
 <img width="646" height="263" alt="image" src="https://github.com/user-attachments/assets/69444722-c106-4cd6-a5c7-476fa4083ec9" />
 
 
 
-### 2. MVC Pattern Implementation Analysis
+### 2.  Look through the example code in the GitHub repository and explain how this example implements the MVC pattern. How does it differ from the conventional MVC pattern described in the lectures?
+The purpose of the MVC pattern is to separate information (Model), presentation (View), and user interaction (Control). This is used so that when data changes, the view and controller can update independently. The example code in the Github repository implements the MVC pattern by firstly making the model class store the users' first and last names and provides getter and setter methods. It only represents the data and does not depend on any graphics. The view class creates the user interface by using Swing components such as JFrame, JLabel, JTextField, and JButton. This class is responsible for displaying data and creating user fields in which the user can type. The controller class connects the view and model by listening for user actions such as button clicks. When new data is received, it updates the model and tells the view to refresh for display new messages. However, this code differs from the conventional MVC pattern described in the lectures as the controller manually tells the view what to display. The model does not directly notify the view or controller about changes, but instead, the controller handles all the communication. This makes it different from the conventional MVC pattern as the controller and view are more tightly linked. 
 
-**How this example implements the MVC pattern:**
-The purpose of the MVC pattern is to separate information (Model), presentation (View), and user interaction (Controller). This separation allows the view and controller to update independently when data changes. The example code implements the MVC pattern by:
-
-- **Model**: Stores the application data and provides getter/setter methods. It only represents the data and does not depend on any graphics.
-- **View**: Creates the user interface using Swing components such as JFrame, JLabel, JTextField, and JButton. This class is responsible for displaying data and creating user input fields.
-- **Controller**: Connects the view and model by listening for user actions such as button clicks. When new data is received, it updates the model and tells the view to refresh to display new messages.
-
-**Differences from conventional MVC pattern:**
-This implementation differs from the conventional MVC pattern described in lectures because the controller manually tells the view what to display. The model does not directly notify the view or controller about changes; instead, the controller handles all the communication. This creates a tighter coupling between the controller and view compared to the conventional MVC pattern.
-
-### 3. Cash Register Application Design
+### 3.  In the repository there is another Java file that is named Scanner. This Class emulates the scanning of a product by generating a UPC code. If you press on the Scan button you will see that it prints out the “12345” code to the console. For this assignment, modify the Scanner so that each time the Scan button is pressed, it randomly selects a UPC code from a file containing product information with the following format.
 
 The application has been modified to include a functional cash register system:
 
@@ -69,7 +58,7 @@ The application has been modified to include a functional cash register system:
 **Usage:**
 When executing the main Java file, users can repeatedly press the Scan button to see multiple products appear in the scrollable list, with the subtotal updating automatically after each scan.
 
-### 4. Sequence Diagram
+### 4. Create a sequence diagram of your design for the scenario presented in question 3, representing a single press of the scan button.
 
 *A sequence diagram representing a single press of the scan button would be included here, showing the interaction between Scanner, Controller, CashRegister (Model), and Display (View) components.*
 <img width="744" height="364" alt="image" src="https://github.com/user-attachments/assets/7886e49f-1ce4-4187-bc73-f5dccd9a31e6" />
